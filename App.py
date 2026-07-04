@@ -14,7 +14,7 @@ external_stylesheets = [
         'crossorigin': 'anonymous'
     }
 ]
-patients = pd.read_csv('/Users/akashkumar/Desktop/Crona/IndividualDetails.csv')
+patients = pd.read_csv('IndividualDetails.csv')
 total = patients.shape[0]
 Active = patients[patients['current_status'] == 'Hospitalized'].shape[0]
 Recovered = patients[patients['current_status'] == 'Recovered'].shape[0]
@@ -28,6 +28,7 @@ options = [
 ]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 app.layout = html.Div([
     html.H1("Cornona Virus Pandemic", style={'color': '#fff', 'textAlign': 'center'}),
 
